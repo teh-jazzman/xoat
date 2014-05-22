@@ -9,7 +9,7 @@
 // Title bar xft font.
 // Setting this to NULL will disable title bars
 //#define TITLE NULL
-#define TITLE "DejaVu Sans:size=10"
+#define TITLE "sans:size=9"
 
 // Title bar style
 #define TITLE_BLUR "Black"
