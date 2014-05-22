@@ -9,7 +9,7 @@
 // Title bar xft font.
 // Setting this to NULL will disable title bars
 //#define TITLE NULL
-#define TITLE "sans:size=8"
+#define TITLE "DejaVu Sans:size=10"
 
 // Title bar style
 #define TITLE_BLUR "Black"
@@ -74,16 +74,16 @@ Layout layouts[] = {
 Binding keys[] = {
 
 	// Change focus to a spot by direction.
-	{ .mod = Mod4Mask, .key = XK_Left,  .act = action_focus_direction, .num = LEFT  },
-	{ .mod = Mod4Mask, .key = XK_Up,    .act = action_focus_direction, .num = UP    },
-	{ .mod = Mod4Mask, .key = XK_Right, .act = action_focus_direction, .num = RIGHT },
-	{ .mod = Mod4Mask, .key = XK_Down,  .act = action_focus_direction, .num = DOWN  },
+	{ .mod = Mod4Mask, .key = XK_h,  .act = action_focus_direction, .num = LEFT  },
+	{ .mod = Mod4Mask, .key = XK_k,    .act = action_focus_direction, .num = UP    },
+	{ .mod = Mod4Mask, .key = XK_l, .act = action_focus_direction, .num = RIGHT },
+	{ .mod = Mod4Mask, .key = XK_j,  .act = action_focus_direction, .num = DOWN  },
 
 	// Move the current window to another spot by direction.
-	{ .mod = ShiftMask|Mod4Mask, .key = XK_Left,  .act = action_move_direction, .num = LEFT  },
-	{ .mod = ShiftMask|Mod4Mask, .key = XK_Up,    .act = action_move_direction, .num = UP    },
-	{ .mod = ShiftMask|Mod4Mask, .key = XK_Right, .act = action_move_direction, .num = RIGHT },
-	{ .mod = ShiftMask|Mod4Mask, .key = XK_Down,  .act = action_move_direction, .num = DOWN  },
+	{ .mod = ShiftMask|Mod4Mask, .key = XK_h,  .act = action_move_direction, .num = LEFT  },
+	{ .mod = ShiftMask|Mod4Mask, .key = XK_k,    .act = action_move_direction, .num = UP    },
+	{ .mod = ShiftMask|Mod4Mask, .key = XK_l, .act = action_move_direction, .num = RIGHT },
+	{ .mod = ShiftMask|Mod4Mask, .key = XK_j,  .act = action_move_direction, .num = DOWN  },
 
 	// Flip between the top two windows in the current spot.
 	{ .mod = Mod4Mask, .key = XK_Tab, .act = action_raise_nth, .num = 1 },
@@ -100,12 +100,23 @@ Binding keys[] = {
 	// Toggle current window full screen.
 	{ .mod = Mod4Mask, .key = XK_f, .act = action_fullscreen },
 	{ .mod = Mod4Mask, .key = XK_v, .act = action_maximize_vert },
-	{ .mod = Mod4Mask, .key = XK_h, .act = action_maximize_horz },
+	{ .mod = Mod4Mask, .key = XK_b, .act = action_maximize_horz },
 	{ .mod = Mod4Mask, .key = XK_m, .act = action_maximize },
 
 	// Launcher
 	{ .mod = Mod4Mask, .key = XK_x,  .act = action_command, .data = "dmenu_run" },
+	{ .mod = Mod4Mask, .key = XK_F1, .act = action_command, .data = "st"   },
+	{ .mod = Mod4Mask, .key = XK_F2, .act = action_find_or_start, .data = "chromium"  },
+	{ .mod = Mod4Mask, .key = XK_F3, .act = action_find_or_start, .data = "spacefm"   },
+	{ .mod = Mod4Mask, .key = XK_plus, .act = action_command, .data = "amixer set Master 5+"   },
+	{ .mod = Mod4Mask, .key = XK_minus, .act = action_command, .data = "amixer set Master 5-"   },
 
-	// Example
-	// { .mod = AnyModifier, .key = XK_F1, .act = action_find_or_start, .data = "xterm" },
+	// Find or start apps by WM_CLASS (lower case match).
+	// Only works for apps that use some form of their binary name as their class...
+	//{ .mod = AnyModifier, .key = XK_F1, .act = action_find_or_start, .data = "st"  },
+	//{ .mod = AnyModifier, .key = XK_F2, .act = action_find_or_start, .data = "chromium" },
+	//{ .mod = AnyModifier, .key = XK_F3, .act = action_find_or_start, .data = "spacefm"  },
+	//{ .mod = AnyModifier, .key = XK_F4, .act = action_find_or_start, .data = "geany" },
+
+	//{ .mod = AnyModifier, .key = XK_Print, .act = action_command, .data = "xowl"  },
 };
