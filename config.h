@@ -4,7 +4,7 @@
 #define BORDER_BLUR "Dark Gray"
 #define BORDER_FOCUS "Royal Blue"
 #define BORDER_URGENT "Red"
-#define GAP 1
+#define GAP 5
 
 // Title bar xft font.
 // Setting this to NULL will disable title bars
@@ -110,6 +110,7 @@ Binding keys[] = {
 	{ .mod = Mod4Mask, .key = XK_F3, .act = action_find_or_start, .data = "spacefm"   },
 	{ .mod = Mod4Mask, .key = XK_plus, .act = action_command, .data = "amixer set Master 5+"   },
 	{ .mod = Mod4Mask, .key = XK_minus, .act = action_command, .data = "amixer set Master 5-"   },
+	{ .mod = AnyModifier, .key = XK_Print, .act = action_command, .data = "import /tmp/screenshot.png"  },
 
 	// Find or start apps by WM_CLASS (lower case match).
 	// Only works for apps that use some form of their binary name as their class...
