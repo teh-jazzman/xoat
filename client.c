@@ -141,6 +141,10 @@ Client* window_build_client(Window win)
 					c->urgent = c->urgent || hints->flags & XUrgencyHint ? 1:0;
 					XFree(hints);
 				}
+				else {
+					// When no WM hints are set push input focus by default
+					c->input  = 1;
+				}
 				if (XGetClassHint(display, c->window, &chint))
 				{
 					c->class = strdup(chint.res_class);
