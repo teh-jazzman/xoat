@@ -135,15 +135,15 @@ Client* window_build_client(Window win)
 				{
 					c->spot = SPOT3;
 				}
+				c->input = 1;
 				if ((hints = XGetWMHints(display, c->window)))
 				{
-					c->input  = hints->flags & InputHint && hints->input ? 1:0;
+					if ((hints->flags & InputHint) > 0)
+					{
+					    c->input = hints->input ? 1:0;
+					}
 					c->urgent = c->urgent || hints->flags & XUrgencyHint ? 1:0;
 					XFree(hints);
-				}
-				else {
-					// When no WM hints are set push input focus by default
-					c->input  = 1;
 				}
 				if (XGetClassHint(display, c->window, &chint))
 				{
