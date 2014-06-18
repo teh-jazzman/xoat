@@ -182,7 +182,24 @@ int client_send_wm_protocol(Client *c, Atom protocol)
 	return 0;
 }
 
-void client_place_spot(Client *c, int spot, int mon, int force)
+static void client_notify(client *c, int x, int y, int w, int h) {
+	XConfigureEvent ce;
+
+	ce.type = ConfigureNotify;
+	ce.event = c->window;
+	ce.window = c->window;
+	ce.x = x;
+	ce.y = y;
+	ce.width = w;
+	ce.height = h;
+	ce.border_width = 0;
+	ce.above = None;
+	ce.override_redirect = False;
+
+	XSendEvent(display, c->window, False, StructureNotifyMask, (XEvent *)&ce);
+}
+
+void client_place_spot(client *c, int spot, int mon, int force)
 {
 	if (!c) return;
 	int i; Client *t;
@@ -224,6 +241,7 @@ void client_place_spot(Client *c, int spot, int mon, int force)
 	if (c->full)
 	{
 		XMoveResizeWindow(display, c->window, m->x, m->y, m->w, m->h);
+		client_notify(c, m->x, m->y, m->w, m->h);
 		return;
 	}
 	else
@@ -276,6 +294,7 @@ void client_place_spot(Client *c, int spot, int mon, int force)
 	y = MAX(m->y, MIN(y, m->y + m->h - h - settings.border * 2));
 
 	XMoveResizeWindow(display, c->window, x, y, w, h);
+	client_notify(c, x, y, w, h);
 }
 
 void client_stack_family(Client *c, Stack *raise)
