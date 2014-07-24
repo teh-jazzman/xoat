@@ -106,7 +106,7 @@ Binding keys[] = {
 	// Launcher
 	{ .mod = Mod4Mask, .key = XK_x,  .act = action_command, .data = "dmenu_run" },
 	{ .mod = Mod4Mask, .key = XK_F1, .act = action_command, .data = "st"   },
-	{ .mod = Mod4Mask, .key = XK_F2, .act = action_find_or_start, .data = "firefox"  },
+	{ .mod = Mod4Mask, .key = XK_F2, .act = action_find_or_start, .data = "chromium"  },
 	{ .mod = Mod4Mask, .key = XK_F3, .act = action_find_or_start, .data = "spacefm"   },
 	{ .mod = Mod4Mask, .key = XK_F4, .act = action_find_or_start, .data = "geany"   },
 	{ .mod = Mod4Mask, .key = XK_plus, .act = action_command, .data = "amixer set Master 5+"   },
