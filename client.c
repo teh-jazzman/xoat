@@ -323,6 +323,12 @@ void client_raise_family(Client *c)
 	for_windows(i, o) if (o->type == atoms[_NET_WM_WINDOW_TYPE_DOCK])
 		client_stack_family(o, &raise);
 
+	/* return and do nothing if the window is already on top */
+	if (c->window == windows.windows[0]) {
+		STACK_FREE(&family);
+		return;
+	}
+
 	while (c->transient && (o = window_build_client(c->transient)) && o->manage)
 		c = family.clients[family.depth++] = o;
 
