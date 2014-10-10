@@ -89,7 +89,7 @@ Binding keys[] = {
 	{ .mod = Mod4Mask, .key = XK_Tab, .act = action_raise_nth, .num = 1 },
 
 	// Cycle through all windows in the current spot.
-	{ .mod = Mod4Mask, .key = XK_grave,  .act = action_cycle },
+	{ .mod = Mod4Mask, .key = XK_dead_circumflex,  .act = action_cycle },
 
 	// Gracefully close the current window.
 	{ .mod = Mod4Mask, .key = XK_Escape, .act = action_close },
