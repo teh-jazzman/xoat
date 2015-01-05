@@ -49,8 +49,8 @@
 
 Layout layouts[] = {
 	// Look at xrandr output to determine your monitor order.
-	{ .spot_start = SMART, .spot1_align = LEFT,  .spot1_width_pct = 60, .spot2_height_pct = 60 }, // primary monitor
-	{ .spot_start = SMART, .spot1_align = RIGHT, .spot1_width_pct = 60, .spot2_height_pct = 60 }, // secondary monitor, etc...
+	{ .spot_start = SMART, .spot1_align = LEFT,  .spot1_width_pct = 64, .spot2_height_pct = 64 }, // primary monitor
+	{ .spot_start = SMART, .spot1_align = RIGHT, .spot1_width_pct = 64, .spot2_height_pct = 64 }, // secondary monitor, etc...
 };
 
 // Available actions...
