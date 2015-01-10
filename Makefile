@@ -27,6 +27,5 @@ install: xoat xoat.1
 	cp xoat $(BINDIR)/xoat.new
 	mv $(BINDIR)/xoat.new $(BINDIR)/xoat
 	cp xoat.1 $(MANDIR)/man1/xoat.1
-	#mandb -qsp
 
 all: docs normal debug
