@@ -111,14 +111,5 @@ Binding keys[] = {
 	{ .mod = Mod4Mask, .key = XK_F4, .act = action_find_or_start, .data = "geany"   },
 	{ .mod = Mod4Mask, .key = XK_plus, .act = action_command, .data = "amixer set Master 5+"   },
 	{ .mod = Mod4Mask, .key = XK_minus, .act = action_command, .data = "amixer set Master 5-"   },
-	{ .mod = AnyModifier, .key = XK_Print, .act = action_command, .data = "import /tmp/screenshot.png"  },
-
-	// Find or start apps by WM_CLASS (lower case match).
-	// Only works for apps that use some form of their binary name as their class...
-	//{ .mod = AnyModifier, .key = XK_F1, .act = action_find_or_start, .data = "st"  },
-	//{ .mod = AnyModifier, .key = XK_F2, .act = action_find_or_start, .data = "chromium" },
-	//{ .mod = AnyModifier, .key = XK_F3, .act = action_find_or_start, .data = "spacefm"  },
-	//{ .mod = AnyModifier, .key = XK_F4, .act = action_find_or_start, .data = "geany" },
-
-	//{ .mod = AnyModifier, .key = XK_Print, .act = action_command, .data = "xowl"  },
+	{ .mod = AnyModifier, .key = XK_Print, .act = action_command, .data = "import +repage /tmp/screenshot.png"  },
 };
