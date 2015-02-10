@@ -126,9 +126,9 @@ void setup()
 				m->spots[j].h = height_spot1;
 				if (j == SPOT1) continue;
 
-				m->spots[j].y = spot1_align == LEFT ? y + height_spot1 + GAP: y;
-				m->spots[j].h = h - height_spot1 - GAP;
-				m->spots[j].w = w - width_spot2 - GAP;
+				m->spots[j].y = spot1_align == LEFT ? y + height_spot1 + settings.gap: y;
+				m->spots[j].h = h - height_spot1 - settings.gap;
+				m->spots[j].w = w - width_spot2 - settings.gap;
 				if (j == SPOT3) continue;
 
 				m->spots[j].x = x + w - width_spot2;
@@ -147,13 +147,13 @@ void setup()
 			m->spots[j].h = h;
 			if (j == SPOT1) continue;
 
-			m->spots[j].x = spot1_align == LEFT ? x + width_spot1 + GAP: x;
-			m->spots[j].w = w - width_spot1 - GAP;
+			m->spots[j].x = spot1_align == LEFT ? x + width_spot1 + settings.gap: x;
+			m->spots[j].w = w - width_spot1 - settings.gap;
 			m->spots[j].h = height_spot2;
 			if (j == SPOT2) continue;
 
-			m->spots[j].y = y + height_spot2 + GAP;
-			m->spots[j].h = h - height_spot2 - GAP;
+			m->spots[j].y = y + height_spot2 + settings.gap;
+			m->spots[j].h = h - height_spot2 - settings.gap;
 		}
 	}
 

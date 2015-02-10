@@ -4,12 +4,12 @@
 #define BORDER_BLUR "Dark Gray"
 #define BORDER_FOCUS "Royal Blue"
 #define BORDER_URGENT "Red"
-#define GAP 5
+#define GAP 1
 
 // Title bar xft font.
 // Setting this to NULL will disable title bars
 //#define TITLE NULL
-#define TITLE "sans:size=9"
+#define TITLE "sans:size=8"
 
 // Title bar style
 #define TITLE_BLUR "Black"
@@ -49,8 +49,8 @@
 
 Layout layouts[] = {
 	// Look at xrandr output to determine your monitor order.
-	{ .spot_start = SMART, .spot1_align = LEFT,  .spot1_width_pct = 64, .spot2_height_pct = 64 }, // primary monitor
-	{ .spot_start = SMART, .spot1_align = RIGHT, .spot1_width_pct = 64, .spot2_height_pct = 64 }, // secondary monitor, etc...
+	{ .spot_start = SMART, .spot1_align = LEFT,  .spot1_width_pct = 60, .spot2_height_pct = 60 }, // primary monitor
+	{ .spot_start = SMART, .spot1_align = RIGHT, .spot1_width_pct = 60, .spot2_height_pct = 60 }, // secondary monitor, etc...
 };
 
 // Available actions...
@@ -74,22 +74,22 @@ Layout layouts[] = {
 Binding keys[] = {
 
 	// Change focus to a spot by direction.
-	{ .mod = Mod4Mask, .key = XK_h,  .act = action_focus_direction, .num = LEFT  },
-	{ .mod = Mod4Mask, .key = XK_k,    .act = action_focus_direction, .num = UP    },
-	{ .mod = Mod4Mask, .key = XK_l, .act = action_focus_direction, .num = RIGHT },
-	{ .mod = Mod4Mask, .key = XK_j,  .act = action_focus_direction, .num = DOWN  },
+	{ .mod = Mod4Mask, .key = XK_Left,  .act = action_focus_direction, .num = LEFT  },
+	{ .mod = Mod4Mask, .key = XK_Up,    .act = action_focus_direction, .num = UP    },
+	{ .mod = Mod4Mask, .key = XK_Right, .act = action_focus_direction, .num = RIGHT },
+	{ .mod = Mod4Mask, .key = XK_Down,  .act = action_focus_direction, .num = DOWN  },
 
 	// Move the current window to another spot by direction.
-	{ .mod = ShiftMask|Mod4Mask, .key = XK_h,  .act = action_move_direction, .num = LEFT  },
-	{ .mod = ShiftMask|Mod4Mask, .key = XK_k,    .act = action_move_direction, .num = UP    },
-	{ .mod = ShiftMask|Mod4Mask, .key = XK_l, .act = action_move_direction, .num = RIGHT },
-	{ .mod = ShiftMask|Mod4Mask, .key = XK_j,  .act = action_move_direction, .num = DOWN  },
+	{ .mod = ShiftMask|Mod4Mask, .key = XK_Left,  .act = action_move_direction, .num = LEFT  },
+	{ .mod = ShiftMask|Mod4Mask, .key = XK_Up,    .act = action_move_direction, .num = UP    },
+	{ .mod = ShiftMask|Mod4Mask, .key = XK_Right, .act = action_move_direction, .num = RIGHT },
+	{ .mod = ShiftMask|Mod4Mask, .key = XK_Down,  .act = action_move_direction, .num = DOWN  },
 
 	// Flip between the top two windows in the current spot.
 	{ .mod = Mod4Mask, .key = XK_Tab, .act = action_raise_nth, .num = 1 },
 
 	// Cycle through all windows in the current spot.
-	{ .mod = Mod4Mask, .key = XK_dead_circumflex,  .act = action_cycle },
+	{ .mod = Mod4Mask, .key = XK_grave,  .act = action_cycle },
 
 	// Gracefully close the current window.
 	{ .mod = Mod4Mask, .key = XK_Escape, .act = action_close },
@@ -100,16 +100,12 @@ Binding keys[] = {
 	// Toggle current window full screen.
 	{ .mod = Mod4Mask, .key = XK_f, .act = action_fullscreen },
 	{ .mod = Mod4Mask, .key = XK_v, .act = action_maximize_vert },
-	{ .mod = Mod4Mask, .key = XK_b, .act = action_maximize_horz },
+	{ .mod = Mod4Mask, .key = XK_h, .act = action_maximize_horz },
 	{ .mod = Mod4Mask, .key = XK_m, .act = action_maximize },
 
 	// Launcher
 	{ .mod = Mod4Mask, .key = XK_x,  .act = action_command, .data = "dmenu_run" },
-	{ .mod = Mod4Mask, .key = XK_F1, .act = action_command, .data = "st"   },
-	{ .mod = Mod4Mask, .key = XK_F2, .act = action_find_or_start, .data = "chromium"  },
-	{ .mod = Mod4Mask, .key = XK_F3, .act = action_find_or_start, .data = "spacefm"   },
-	{ .mod = Mod4Mask, .key = XK_F4, .act = action_find_or_start, .data = "geany"   },
-	{ .mod = Mod4Mask, .key = XK_plus, .act = action_command, .data = "amixer set Master 5+"   },
-	{ .mod = Mod4Mask, .key = XK_minus, .act = action_command, .data = "amixer set Master 5-"   },
-	{ .mod = AnyModifier, .key = XK_Print, .act = action_command, .data = "import +repage /tmp/screenshot.png"  },
+
+	// Example
+	// { .mod = AnyModifier, .key = XK_F1, .act = action_find_or_start, .data = "xterm" },
 };
