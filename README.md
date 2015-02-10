@@ -1,3 +1,5 @@
+*Note:* This is a repository for my personal changes and configuration. Feel free to use or fork it, but you may want the [official variant](https://github.com/seanpringle/xoat) instead.
+
 xoat
 ====
 
