@@ -182,7 +182,7 @@ int client_send_wm_protocol(Client *c, Atom protocol)
 	return 0;
 }
 
-static void client_notify(client *c, int x, int y, int w, int h) {
+static void client_notify(Client *c, int x, int y, int w, int h) {
 	XConfigureEvent ce;
 
 	ce.type = ConfigureNotify;
@@ -199,7 +199,7 @@ static void client_notify(client *c, int x, int y, int w, int h) {
 	XSendEvent(display, c->window, False, StructureNotifyMask, (XEvent *)&ce);
 }
 
-void client_place_spot(client *c, int spot, int mon, int force)
+void client_place_spot(Client *c, int spot, int mon, int force)
 {
 	if (!c) return;
 	int i; Client *t;
